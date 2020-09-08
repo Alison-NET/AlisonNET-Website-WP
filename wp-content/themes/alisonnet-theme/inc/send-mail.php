@@ -26,18 +26,17 @@ $bodyText.= '<br><h6>Contacts</h6>';
 if(isset($userEmail)) $bodyText.= '<br><b>Email: '.$userEmail.'</b>';
 if(isset($userPhone)) $bodyText.= '<br><b>Phone: '.$userPhone.'</b>';
 
-try {
-
 $mail->isSMTP();                              // Set mailer to use SMTP
-$mail->Host = 'smtp.gmail.com';               // Specify main and backup SMTP servers
+$mail->Host = 'mail.alisonnet.com';               // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                       // Enable SMTP authentication
-$mail->Username = 'tariksyurts@gmail.com';     // Ваш логин от почты с которой будут отправляться письма
-$mail->Password = 'C0sNPVBLDVtaras';          // Ваш пароль от почты с которой будут отправляться письма
+$mail->Username = 'test-mail@alisonnet.com';     // Ваш логин от почты с которой будут отправляться письма
+$mail->Password = 'jAsI!LIHmwMJ';          // Ваш пароль от почты с которой будут отправляться письма
 $mail->SMTPSecure = 'ssl';                    // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 465;                            // TCP port to connect to / этот порт может отличаться у других провайдеров
-$mail->setFrom('example@mail.com'); // От кого будет уходить письмо?
-$mail->addAddress('yurts.taras@comp-sc.if.ua'); // Кому будет уходить письмо?
-$mail->isHTML(false);                                  // Set email format to HTML
+$mail->Port = 25;                            // TCP port to connect to / этот порт может отличаться у других провайдеров
+$mail->setFrom('test-mail@alisonnet.com'); // От кого будет уходить письмо?
+$mail->addAddress('tariksyurts@gmail.com'); // Кому будет уходить письмо?
+// $mail->addAddress('alison@alisonnet.com'); // Кому будет уходить письмо?
+$mail->isHTML(true);                                  // Set email format to HTML
 $mail->SMTPDebug = 3;                       // Enable verbose debug output
 
 $mail->Subject = $titleText;
@@ -46,7 +45,7 @@ $mail->Body    = $bodyText;
 
 $mail->send();
 
-echo 'Message has been sent';
-} catch (Exception $e) {
-	echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+if(!$mail->send()) {
+	echo "<b>Error occured. Cant send mail</b> <br>";
+	echo $mail->ErrorInfo;
 }
