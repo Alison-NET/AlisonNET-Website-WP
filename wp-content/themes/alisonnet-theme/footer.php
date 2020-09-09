@@ -91,5 +91,34 @@
 
 	<?php wp_footer(); ?>
 
+
+	<script>
+
+	$('.form.contact-form').submit(function() {
+		var form = $(this);
+		form.find('.form-submit').attr('disabled', 'disabled');
+		var msg = form.serialize() + '&messageTitle=' + 'AlisonNET - Service';
+		console.log(msg);
+
+		$.ajax({
+			type: 'POST',
+			url: '<?php echo get_template_directory_uri(); ?>/inc/send-mail.php',
+			data: msg,
+			success: function(data) {
+			$('.notification-card').addClass('animate__animated animate__fadeInRight notification-card--active');
+			form.find('.form-submit').removeAttr('disabled');
+			// location.href = '/thanks';
+			form[0].reset();
+			console.log(data);
+			},
+			error: function(xhr, str){
+				alert('Виникла помилка при відправці форми: ' + xhr.responseCode);
+			}
+		});
+		return false;
+	});
+
+	</script>
+
 </body>
 </html>

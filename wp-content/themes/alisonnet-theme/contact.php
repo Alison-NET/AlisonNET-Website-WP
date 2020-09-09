@@ -21,7 +21,9 @@ get_template_part( 'template-parts/head', 'contact' );
 			</div>
 			<div class="col-md-6">
 				<div class="contact-us-form-wrapper">
-					<?php get_template_part( 'template-parts/form', 'feedback' );?>
+					<?php 	get_template_part( 'template-parts/form', 'feedback' );
+							get_template_part( 'template-parts/card-notification' );
+					?>
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 <!-- Feedback Form -->
-<form class="form custom-borders animate__fadeInUp animate__animated wow">
+<form class="form contact-form custom-borders animate__fadeInUp animate__animated wow">
 	<div class="form-row">
 		<div class="form-group col-md-6">
 			<input type="text" class="form-control" placeholder="Name" name="name">
