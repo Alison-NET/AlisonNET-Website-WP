@@ -306,7 +306,7 @@
 					<div class="col-md-7 d-flex justify-content-start">
 						<div class="location-separator"></div>
 						<h4 class="location-text align-self-center animate__animated animate__fadeIn wow">
-							610 W 42nd Street<br />Unit N36H<br />New York, NY 10036
+							606 W 42nd Street<br /><br />New York, NY 10036
 						</h4>
 					</div>
 				</div>
